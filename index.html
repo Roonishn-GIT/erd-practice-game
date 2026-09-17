@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ERD Master is a practice game for learning Entity Relationship Diagrams.">
+  <title>ERD Master | ERD Practice Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#dashboard" aria-label="ERD Master home">
+        <span class="brand-mark" aria-hidden="true">ER</span>
+        <span>
+          <strong>ERD Master</strong>
+          <small>Diagram fluency, one question at a time.</small>
+        </span>
+      </a>
+      <div class="topbar-status" aria-label="Your game status">
+        <span class="status-dot"></span>
+        <span>Practice session ready</span>
+      </div>
+    </header>
+
+    <main>
+      <section id="dashboard" class="dashboard-view" aria-labelledby="welcome-heading">
+        <div class="hero-copy">
+          <p class="eyebrow">ENTITY RELATIONSHIP DIAGRAMS</p>
+          <h1 id="welcome-heading">Build the habit of seeing the <span>relationships.</span></h1>
+          <p class="hero-description">Sharpen your ERD instincts with focused practice on notation, rules, and the details that make data models work.</p>
+        </div>
+
+        <section class="stats-grid" aria-label="Your progress">
+          <article class="stat-card stat-score">
+            <div class="stat-icon" aria-hidden="true">✦</div>
+            <div><span class="stat-label">Score</span><strong id="score-value">0</strong></div>
+            <span class="stat-trend">+0 today</span>
+          </article>
+          <article class="stat-card stat-streak">
+            <div class="stat-icon" aria-hidden="true">↗</div>
+            <div><span class="stat-label">Current streak</span><strong id="streak-value">0</strong></div>
+            <span class="stat-trend">Keep it going</span>
+          </article>
+          <article class="stat-card stat-level">
+            <div class="stat-icon" aria-hidden="true">◆</div>
+            <div><span class="stat-label">Difficulty</span><strong id="difficulty-value">Warm-up</strong></div>
+            <span class="stat-trend">Adaptive</span>
+          </article>
+          <article class="stat-card stat-progress">
+            <div class="stat-icon" aria-hidden="true">◴</div>
+            <div><span class="stat-label">Progress</span><strong id="progress-value">0%</strong></div>
+            <span class="stat-trend">This session</span>
+          </article>
+        </section>
+
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">CHOOSE YOUR PATH</p>
+            <h2>Practice modes</h2>
+          </div>
+          <span class="mode-count">04 / 04 active</span>
+        </div>
+
+        <section class="mode-grid" aria-label="Practice modes">
+          <button class="mode-card mode-active" type="button" data-mode="read">
+            <span class="mode-number">01</span>
+            <span class="mode-illustration relationship-art" aria-hidden="true"><i></i><b></b><i></i></span>
+            <span class="mode-content"><strong>Read an ERD</strong><span>Decode relationships, keys, and business rules.</span></span>
+            <span class="mode-action" aria-hidden="true">→</span>
+          </button>
+          <button class="mode-card mode-active" type="button" data-mode="terminology">
+            <span class="mode-number">02</span>
+            <span class="mode-illustration type-art" aria-hidden="true">Aa</span>
+            <span class="mode-content"><strong>Terminology</strong><span>Master the language behind every diagram.</span></span>
+            <span class="mode-action" aria-hidden="true">→</span>
+          </button>
+          <button class="mode-card mode-active" type="button" data-mode="blank">
+            <span class="mode-number">03</span>
+            <span class="mode-illustration blank-art" aria-hidden="true">?</span>
+            <span class="mode-content"><strong>Fill in the Blank</strong><span>Complete the missing pieces of a model.</span></span>
+            <span class="mode-action" aria-hidden="true">→</span>
+          </button>
+          <button class="mode-card mode-active" type="button" data-mode="build">
+            <span class="mode-number">04</span>
+            <span class="mode-illustration build-art" aria-hidden="true">⌘</span>
+            <span class="mode-content"><strong>Build an ERD</strong><span>Turn business rules into a clear model.</span></span>
+            <span class="mode-action" aria-hidden="true">→</span>
+          </button>
+        </section>
+      </section>
+
+      <section id="practice" class="practice-view" hidden aria-labelledby="practice-heading">
+        <div class="practice-header">
+          <button class="back-button" id="back-button" type="button"><span aria-hidden="true">←</span> Main menu</button>
+          <div class="practice-title"><p id="practice-mode-label" class="eyebrow">READ AN ERD</p><h2 id="practice-heading">Relationship reconnaissance</h2></div>
+          <span class="question-counter" id="question-counter">Question 1 of 7</span>
+        </div>
+        <div class="progress-track" aria-label="Question progress"><span id="question-progress"></span></div>
+
+        <div class="question-layout">
+          <aside class="diagram-panel">
+            <div class="panel-heading"><span>CASE STUDY / 01</span><span class="diagram-live"><i></i> Live model</span></div>
+            <div id="diagram-canvas" class="diagram-canvas" aria-label="Crow's Foot entity relationship diagram">
+              <div class="diagram-connector" aria-hidden="true"></div>
+              <div class="entity entity-left"></div>
+              <div class="entity entity-right"></div>
+              <div class="missing-entity-placeholder" aria-hidden="true"></div>
+              <div class="missing-relationship-placeholder" aria-hidden="true"></div>
+              <div class="relationship-end endpoint-left" aria-hidden="true"></div>
+              <div class="relationship-end endpoint-right" aria-hidden="true"></div>
+              <div class="diagram-caption"><span class="legend-key pk">PK</span> Primary key <span class="legend-key fk">FK</span> Foreign key</div>
+            </div>
+            <div id="concept-card" class="concept-card" hidden></div>
+            <div class="diagram-legend" aria-label="Crow's Foot notation legend">
+              <span><i class="mini-marker zero-one" aria-hidden="true"><i class="marker-circle"></i><i class="marker-bar"></i></i> Zero or one</span>
+              <span><i class="mini-marker exactly-one" aria-hidden="true"><i class="marker-bar"></i><i class="marker-bar"></i></i> Exactly one</span>
+              <span><i class="mini-marker zero-many" aria-hidden="true"><i class="marker-circle"></i><i class="marker-foot"><i></i><i></i><i></i></i></i> Zero or many</span>
+              <span><i class="mini-marker one-many" aria-hidden="true"><i class="marker-bar"></i><i class="marker-foot"><i></i><i></i><i></i></i></i> One or many</span>
+            </div>
+            <div class="diagram-note"><span aria-hidden="true">✦</span><p><strong>Read the shape, then the rule.</strong> A circle means optional, a bar means one, and a crow's foot means many.</p></div>
+          </aside>
+
+          <section class="question-panel">
+            <div class="question-meta"><span id="question-topic">CARDINALITY</span><span id="question-difficulty">FOUNDATION</span></div>
+            <h3 id="question-text">Loading question...</h3>
+            <div id="answer-list" class="answer-list" role="radiogroup" aria-label="Answer choices"></div>
+            <div id="feedback" class="feedback" hidden aria-live="polite"></div>
+            <div class="question-actions"><span class="keyboard-hint">Select an answer to continue</span><button id="next-button" class="primary-button" type="button" disabled>Check answer <span aria-hidden="true">→</span></button></div>
+          </section>
+        </div>
+      </section>
+
+      <section id="builder" class="builder-view" hidden aria-labelledby="builder-heading">
+        <div class="practice-header">
+          <button class="back-button" id="builder-back-button" type="button"><span aria-hidden="true">←</span> Main menu</button>
+          <div class="practice-title"><p class="eyebrow">BUILD AN ERD</p><h2 id="builder-heading">Model workshop</h2></div>
+          <span class="question-counter" id="builder-counter">Challenge 1 of 3</span>
+        </div>
+        <div class="progress-track" aria-label="Build challenge progress"><span id="builder-progress"></span></div>
+        <div class="builder-layout">
+          <aside class="scenario-panel">
+            <div class="panel-heading"><span id="builder-topic">FOUNDATION / 01</span><span class="diagram-live"><i></i> Brief</span></div>
+            <h3 id="builder-challenge-title">One-to-many relationship</h3>
+            <p id="builder-scenario"></p>
+            <div class="builder-instructions"><strong>Build the model</strong><span>Add entities, connect them, then set both endpoint markers and key roles.</span></div>
+            <div class="entity-bank-heading"><span>ENTITY BANK</span><span>Click to add</span></div>
+            <div id="entity-bank" class="entity-bank"></div>
+          </aside>
+          <section class="builder-workspace-panel">
+            <div class="panel-heading"><span>MODEL WORKSPACE</span><span id="builder-selection-status">Select an entity</span></div>
+            <div id="builder-workspace" class="builder-workspace" aria-label="ERD model workspace"></div>
+            <div class="builder-toolbar">
+              <div class="builder-control-group"><label for="relationship-left">Entity A</label><select id="relationship-left"></select></div>
+              <button id="create-relationship-button" class="secondary-button" type="button">+ Create relationship</button>
+              <div class="builder-control-group"><label for="relationship-right">Entity B</label><select id="relationship-right"></select></div>
+            </div>
+            <div id="relationship-editor" class="relationship-editor" hidden>
+              <div class="relationship-editor-heading"><strong>Relationship ends</strong><span id="relationship-editor-label"></span></div>
+              <div id="relationship-status" class="relationship-status" aria-live="polite"></div>
+              <div class="endpoint-controls">
+                <label><span id="left-end-label">Entity A</span><select id="left-marker-select"><option value="zero-one">Zero or one (o|)</option><option value="exactly-one">Exactly one (||)</option><option value="zero-many">Zero or many (o{)</option><option value="one-many">One or many (|{)</option></select></label>
+                <label><span id="right-end-label">Entity B</span><select id="right-marker-select"><option value="zero-one">Zero or one (o|)</option><option value="exactly-one">Exactly one (||)</option><option value="zero-many">Zero or many (o{)</option><option value="one-many">One or many (|{)</option></select></label>
+              </div>
+              <button id="save-relationship-button" class="secondary-button" type="button">Save relationship</button>
+            </div>
+            <div class="builder-actions"><button id="check-model-button" class="primary-button" type="button">Check model <span aria-hidden="true">✓</span></button><button id="show-solution-button" class="secondary-button" type="button" hidden>Show solution</button><button id="next-challenge-button" class="secondary-button" type="button" hidden>Next challenge →</button></div>
+            <div id="builder-feedback" class="builder-feedback" hidden aria-live="polite"></div>
+          </section>
+        </div>
+      </section>
+    </main>
+    <footer class="footer"><span>ERD MASTER</span><span>Practice makes models clearer.</span></footer>
+  </div>
+  <script src="data/questions.js"></script>
+  <script src="data/terminology.js"></script>
+  <script src="data/fill-blanks.js"></script>
+  <script src="data/build-challenges.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
